@@ -10,4 +10,5 @@ ENV PORT 8080
 EXPOSE 8080
 
 # ใช้ค่า PORT ที่ Render ส่งมา
-CMD ["sh", "-c", "java -jar -Dserver.port=$PORT target/*.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar --server.port=$PORT"]
+
