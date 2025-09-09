@@ -73,7 +73,7 @@ public class AccountService {
     }
 
     public List<AccountResponse> getAllEmployees() {
-        return employeeRepository.findAll().stream()
+        return employeeRepository.findAllByOrderByEmployeeIdAsc().stream()
                 .map(entity -> {
                     AccountResponse response = AccountResponse.fromEntity(entity);
                     if (response.getProfilePictureUrl() != null) {

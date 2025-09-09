@@ -33,7 +33,7 @@ public class PositionService {
     }
 
     public List<PositionResponse> getAllPositions() {
-        return positionRepository.findAll()
+        return positionRepository.findAllByOrderByPositionIdAsc()
                 .stream()
                 .map(PositionResponse::fromEntity)
                 .collect(Collectors.toList());

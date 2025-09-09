@@ -24,7 +24,7 @@ public class DepartmentService {
     }
     // GET ALL
     public List<DepartmentResponse> getAllDepartments() {
-        return departmentRepository.findAll().stream()
+        return departmentRepository.findAllByOrderByDepartmentIdAsc().stream()
                 .map(DepartmentResponse::fromEntity)
                 .collect(Collectors.toList());
     }
