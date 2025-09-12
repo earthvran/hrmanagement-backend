@@ -3,8 +3,8 @@ package com.example.hrmanagement.controller;
 import com.example.hrmanagement.dto.EmployeeRequest;
 import com.example.hrmanagement.dto.EmployeeResponse;
 import com.example.hrmanagement.service.EmployeeService;
-import com.example.hrmanagement.service.StorageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,13 +17,14 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
-    private final StorageService storageService;
-    @PostMapping(value = "/createEmployee", consumes = {"multipart/form-data"})
+
+    @PostMapping(value = "/createEmployee", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<?> createEmployee(
             @RequestPart("request") EmployeeRequest request,
-            @RequestPart("file") MultipartFile file) {
+            @RequestPart(value = "file", required = false) MultipartFile file) {
+
         employeeService.insertEmployee(request, file);
-        return ResponseEntity.ok("Employee created successfully with profile picture");
+        return ResponseEntity.ok("Employee created successfully");
     }
 
     @GetMapping("/getAllEmployees")
