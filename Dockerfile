@@ -1,5 +1,5 @@
 # ใช้ JDK 17 jammy
-FROM oeclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:17-jdk-jammy
 
 # ทำงานในโฟลเดอร์ /app
 WORKDIR /app
