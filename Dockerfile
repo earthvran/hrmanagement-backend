@@ -1,6 +1,12 @@
 # ใช้ JDK 17 jammy
 FROM eclipse-temurin:17-jdk-jammy
 
+# CA certificates
+RUN apt-get update && \
+    apt-get install -y ca-certificates && \
+    update-ca-certificates
+
+
 # ทำงานในโฟลเดอร์ /app
 WORKDIR /app
 
