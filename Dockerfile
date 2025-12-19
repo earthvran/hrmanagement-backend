@@ -1,5 +1,5 @@
-# ใช้ JDK 17 บน Debian Slim
-FROM openjdk:17-jdk-slim
+# ใช้ JDK 17 jammy
+FROM oeclipse-temurin:17-jdk-jammy
 
 # ทำงานในโฟลเดอร์ /app
 WORKDIR /app
